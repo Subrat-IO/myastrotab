@@ -205,6 +205,45 @@
             opacity: 0;
             transform: translateY(30px);
         }
+        .rashi-descriptions {
+    width: 92%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.rashi-description {
+    background-color: rgba(255, 255, 255, 0.1); /* Translucent background */
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
+    text-align: center;
+    color: white; /* Text color */
+    font-size: 1.2rem;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.rashi-description.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: glow 1s infinite alternate; /* Glowing effect */
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(244, 193, 15, 0.8), 0 0 10px rgba(244, 193, 15, 0.8), 0 0 15px rgba(244, 193, 15, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(244, 193, 15, 1), 0 0 30px rgba(244, 193, 15, 1), 0 0 40px rgba(244, 193, 15, 1);
+    }
+}
 
         .visible {
             opacity: 1;
@@ -327,7 +366,8 @@
             </div>
         </div>
     </section>
-
+    
+    
     <section class="service-section" id="service-section">
         <div class="service-box hidden">
             <h3>Free Kundali</h3>
@@ -371,56 +411,63 @@
     <section class="rashis">
         <h2>Explore the 12 Rashis</h2>
         <p>Learn more about your sun sign and how it influences your life.</p>
-        
         <div class="rashi-grid">
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="aries">
                 <img src="mesha1.jpg" alt="Aries" class="rashi-icon">
                 <h3>Aries (Mesh)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="taurus">
                 <img src="tourus.jpg" alt="Taurus" class="rashi-icon">
                 <h3>Taurus (Vrishabha)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="gemini">
                 <img src="gemini.jpg" alt="Gemini" class="rashi-icon">
                 <h3>Gemini (Mithun)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="cancer">
                 <img src="path_to_image/cancer.png" alt="Cancer" class="rashi-icon">
                 <h3>Cancer (Karka)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="leo">
                 <img src="path_to_image/leo.png" alt="Leo" class="rashi-icon">
                 <h3>Leo (Simha)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="virgo">
                 <img src="virgo.jpg" alt="Virgo" class="rashi-icon">
                 <h3>Virgo (Kanya)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="libra">
                 <img src="libraa.jpg" alt="Libra" class="rashi-icon">
                 <h3>Libra (Tula)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="scorpio">
                 <img src="path_to_image/scorpio.png" alt="Scorpio" class="rashi-icon">
                 <h3>Scorpio (Vrishchika)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="sagittarius">
                 <img src="path_to_image/sagittarius.png" alt="Sagittarius" class="rashi-icon">
                 <h3>Sagittarius (Dhanu)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="capricorn">
                 <img src="capri.jpg" alt="Capricorn" class="rashi-icon">
                 <h3>Capricorn (Makara)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="aquarius">
                 <img src="kumbh.jpg" alt="Aquarius" class="rashi-icon">
                 <h3>Aquarius (Kumbha)</h3>
             </a>
-            <a href="#" class="rashi">
+            <a href="#" class="rashi" id="pisces">
                 <img src="pisces1.jpg" alt="Pisces" class="rashi-icon">
                 <h3>Pisces (Meena)</h3>
             </a>
+        </div>
+        
+    </section>
+    <section class="rashi-descriptions">
+        <h2>Rashi Descriptions</h2>
+        <div class="rashi-description hidden">
+            <h3 id="rashi-title"></h3>
+            <p id="rashi-text"></p>
         </div>
     </section>
     <footer>
@@ -482,42 +529,93 @@
     serviceBoxes.forEach(box => {
         revealObserver.observe(box);
     });
+    // Get rashi elements and description section
+const rashis = document.querySelectorAll('.rashi');
+const rashiTitle = document.getElementById('rashi-title');
+const rashiText = document.getElementById('rashi-text');
+const rashiDescription = document.querySelector('.rashi-description');
+
+rashis.forEach(rashi => {
+    rashi.addEventListener('click', function() {
+        const rashiName = this.querySelector('h3').textContent.toLowerCase().split(' ')[0];
+        const rashiInfo = rashiDescriptions[rashiName];
+
+        if (rashiInfo) {
+            rashiTitle.textContent = rashiInfo.title;
+            rashiText.textContent = rashiInfo.text;
+            rashiDescription.classList.remove('hidden');
+            rashiDescription.classList.add('visible');
+        }
+    });
+});
+const rashiDescriptions = {
+    aries: {
+        title: 'Aries (Mesh)',
+        text: 'Aries is the first sign of the zodiac, representing energy, courage, and a pioneering spirit. People born under this sign are known for their enthusiasm and drive.'
+    },
+    taurus: {
+        title: 'Taurus (Vrishabha)',
+        text: 'Taurus is an earth sign known for its practicality and grounded nature. Those born under Taurus value stability and often have a strong connection to the material world.'
+    },
+    gemini: {
+        title: 'Gemini (Mithun)',
+        text: 'Gemini, represented by the twins, is known for its dual nature. Geminis are curious, adaptable, and love to engage in intellectual pursuits and conversations.'
+    },
+    cancer: {
+        title: 'Cancer (Karka)',
+        text: 'Cancer is a water sign associated with deep emotional connections and intuition. Those born under Cancer are nurturing and protective, often guided by their feelings.'
+    },
+    leo: {
+        title: 'Leo (Simha)',
+        text: 'Leo is a fire sign ruled by the Sun. Known for their warmth and leadership qualities, Leos love being in the spotlight and thrive on creativity and confidence.'
+    },
+    virgo: {
+        title: 'Virgo (Kanya)',
+        text: 'Virgo is an earth sign that values precision, practicality, and detail. People born under Virgo are analytical, hardworking, and have a strong sense of duty.'
+    },
+    libra: {
+        title: 'Libra (Tula)',
+        text: 'Libra is an air sign associated with balance, harmony, and relationships. Libras are diplomatic and seek peace in both personal and professional areas of life.'
+    },
+    scorpio: {
+        title: 'Scorpio (Vrishchika)',
+        text: 'Scorpio is a water sign known for its intensity, passion, and deep emotional nature. Scorpios are determined and often have a magnetic, mysterious aura.'
+    },
+    sagittarius: {
+        title: 'Sagittarius (Dhanu)',
+        text: 'Sagittarius is a fire sign associated with exploration, adventure, and philosophical thinking. People born under Sagittarius love freedom and are always seeking new experiences.'
+    },
+    capricorn: {
+        title: 'Capricorn (Makara)',
+        text: 'Capricorn is an earth sign known for its ambition, discipline, and practicality. Capricorns are hardworking and strive to achieve their long-term goals with persistence.'
+    },
+    aquarius: {
+        title: 'Aquarius (Kumbha)',
+        text: 'Aquarius is an air sign known for its innovation, independence, and humanitarian outlook. Aquarians are forward-thinking and often focus on making the world a better place.'
+    },
+    pisces: {
+        title: 'Pisces (Meena)',
+        text: 'Pisces is a water sign associated with creativity, empathy, and spiritual insight. Pisceans are intuitive, compassionate, and often find themselves deeply connected to their inner worlds.'
+    }
+};
+rashis.forEach(rashi => {
+    rashi.addEventListener('click', function() {
+        const rashiName = this.querySelector('h3').textContent.toLowerCase().split(' ')[0];
+        const rashiInfo = rashiDescriptions[rashiName];
+
+        if (rashiInfo) {
+            rashiTitle.textContent = rashiInfo.title;
+            rashiText.textContent = rashiInfo.text;
+            rashiDescription.classList.remove('hidden');
+            rashiDescription.classList.add('visible');
+            
+            // Scroll to the Rashi descriptions section
+            document.querySelector('.rashi-descriptions').scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+
 </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
-    <title>Astrologer Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif; /* Use Roboto for body text */
-            background: radial-gradient(circle, #020024 0%, #090979 40%, #03203C 100%); /* Astrology-inspired background */
-            color: white;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-            position: relative; /* Needed for absolute positioning of stars */
-        }
-
-        /* Starry background */
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Place behind all other content */
-            background: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Star pattern */
-            animation: sparkle 1.5s infinite alternate; /* Animation for sparkle */
-        }
-
