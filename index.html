@@ -14,6 +14,493 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            overflow: hidden; /* Prevent body scroll */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: radial-gradient(circle, #020024 0%, #090979 40%, #03203C 100%);
+            color: white;
+            position: relative;
+        }
+
+        .content-container {
+            height: 100%;
+            overflow-y: auto; /* Enable scrolling within this container */
+            padding-bottom: 2rem;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            animation: sparkle 1.5s infinite alternate;
+        }
+
+        @keyframes sparkle {
+            0% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 92%;
+            margin: 0 auto;
+            border-radius: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        header:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        header nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #f4c10f;
+        }
+
+        .hero {
+            background: url('header1.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            width: 92%;
+            margin: 0 auto;
+            margin-top: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px #000;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .typing-container {
+            text-align: center;
+            font-size: 2rem;
+            color: #f4c10f;
+            margin-top: 1rem;
+        }
+
+        .typing-text {
+            border-right: 2px solid #f4c10f;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .typing-container {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .typing-container {
+                font-size: 1.2rem;
+            }
+        }
+
+        .service-section, .services, .rashis {
+            width: 92%;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .service-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .service-box, .service {
+            background: linear-gradient(to bottom, #ffecd2, #f4c10f);
+            color: black;
+            padding: 2rem;
+            border-radius: 15px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-box h3, .service h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-box a, .service a {
+            display: inline-block;
+            background-color: #f4c10f;
+            color: black;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-box a:hover, .service a:hover {
+            background-color: #ffd700;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            width: 92%;
+            margin: 2rem auto;
+            border-radius: 15px;
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .service-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-section {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
+        .rashi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on PC */
+    gap: 1rem; /* Space between grid items */
+    margin-top: 2rem;
+}
+
+.rashi {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    background-color: rgba(255, 255, 255, 0.1); /* Background for rashi */
+    padding: 1.5rem; /* Padding inside rashi */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Text color */
+    transition: background-color 0.3s, transform 0.3s; /* Transition for hover effects */
+    font-size: 1rem; /* Default font size */
+}
+
+.rashi:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighten on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.rashi-icon {
+    width: 40px; /* Set a fixed width for the icon */
+    height: 40px; /* Set a fixed height for the icon */
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 1rem; /* Space between icon and text */
+}
+
+.rashi h3 {
+    margin: 0; /* Remove default margin */
+    color: #f4c10f; /* Keep header color */
+    font-size: 1.25rem; /* Font size for rashi names */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .rashi-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on medium devices */
+    }
+}
+
+@media (max-width: 768px) {
+    .rashi-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+    
+    .rashi {
+        padding: 1rem; /* Reduce padding on mobile */
+        font-size: 0.9rem; /* Slightly smaller font size on mobile */
+    }
+
+    .rashi-icon {
+        width: 30px; /* Smaller icon size */
+        height: 30px; /* Smaller icon size */
+    }
+}
+
+@media (max-width: 480px) {
+    .rashi-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile devices */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+<!-- Starry background -->
+<div class="stars"></div>
+
+<!-- Scrollable content -->
+<div class="content-container">
+    <header>
+        <div class="logo">
+            <h2>Astrologer Name</h2>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1 class="fade-in">Unlock the Secrets of Your Future</h1>
+            <div class="typing-container">
+                <h2 class="typing-text"></h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-section" id="service-section">
+        <div class="service-box hidden">
+            <h3>Free Kundali</h3>
+            <p>Get your kundali analyzed for free by our specialists.</p>
+            <a href="#">Get Free Kundali</a>
+        </div>
+        <div class="service-box hidden">
+            <h3>Book a Pooja</h3>
+            <p>Arrange a sacred pooja with experienced astrologers.</p>
+            <a href="#">Book Now</a>
+        </div>
+        <div class="service-box hidden">
+            <h3>Chat with Astrologer</h3>
+            <p>Get instant advice from our expert astrologers.</p>
+            <a href="#">Chat Now</a>
+        </div>
+        <div class="service-box hidden">
+            <h3>Talk with Astrologer</h3>
+            <p>Schedule a one-on-one consultation to discuss your future.</p>
+            <a href="#">Talk Now</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="service hidden">
+            <h3>Kundli Matching</h3>
+            <p>Find your perfect match with precise kundli matching services.</p>
+            <a href="#">Learn More</a>
+        </div>
+        <div class="service hidden">
+            <h3>Tarot Reading</h3>
+            <p>Get guidance on love, career, and more with accurate tarot readings.</p>
+            <a href="#">Learn More</a>
+        </div>
+        <div class="service hidden">
+            <h3>Daily Horoscope</h3>
+            <p>Discover your daily fortune with our personalized horoscopes.</p>
+            <a href="#">Read Now</a>
+        </div>
+    </section>
+    <section class="rashis">
+        <h2>Explore the 12 Rashis</h2>
+        <p>Learn more about your sun sign and how it influences your life.</p>
+        
+        <div class="rashi-grid">
+            <a href="#" class="rashi">
+                <img src="path_to_image/aries.png" alt="Aries" class="rashi-icon">
+                <h3>Aries (Mesh)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/taurus.png" alt="Taurus" class="rashi-icon">
+                <h3>Taurus (Vrishabha)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/gemini.png" alt="Gemini" class="rashi-icon">
+                <h3>Gemini (Mithun)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/cancer.png" alt="Cancer" class="rashi-icon">
+                <h3>Cancer (Karka)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/leo.png" alt="Leo" class="rashi-icon">
+                <h3>Leo (Simha)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/virgo.png" alt="Virgo" class="rashi-icon">
+                <h3>Virgo (Kanya)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/libra.png" alt="Libra" class="rashi-icon">
+                <h3>Libra (Tula)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/scorpio.png" alt="Scorpio" class="rashi-icon">
+                <h3>Scorpio (Vrishchika)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/sagittarius.png" alt="Sagittarius" class="rashi-icon">
+                <h3>Sagittarius (Dhanu)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/capricorn.png" alt="Capricorn" class="rashi-icon">
+                <h3>Capricorn (Makara)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/aquarius.png" alt="Aquarius" class="rashi-icon">
+                <h3>Aquarius (Kumbha)</h3>
+            </a>
+            <a href="#" class="rashi">
+                <img src="path_to_image/pisces.png" alt="Pisces" class="rashi-icon">
+                <h3>Pisces (Meena)</h3>
+            </a>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Astrologer Portfolio. All Rights Reserved.</p>
+    </footer>
+</div>
+
+<script>
+    // Simple text typing effect
+    const typingText = document.querySelector('.typing-text');
+    const phrases = ['Astrology Readings', 'Personalized Kundli', 'Daily Horoscopes', 'Future Predictions'];
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    const typingSpeed = 150;
+    const erasingSpeed = 100;
+    const delayBetweenPhrases = 2000;
+
+    function typePhrase() {
+        if (currentCharIndex < phrases[currentPhraseIndex].length) {
+            typingText.textContent += phrases[currentPhraseIndex].charAt(currentCharIndex);
+            currentCharIndex++;
+            setTimeout(typePhrase, typingSpeed);
+        } else {
+            setTimeout(erasePhrase, delayBetweenPhrases);
+        }
+    }
+
+    function erasePhrase() {
+        if (currentCharIndex > 0) {
+            typingText.textContent = phrases[currentPhraseIndex].substring(0, currentCharIndex - 1);
+            currentCharIndex--;
+            setTimeout(erasePhrase, erasingSpeed);
+        } else {
+            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+            setTimeout(typePhrase, typingSpeed);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(typePhrase, typingSpeed);
+    });
+
+    // Scroll reveal effect for service boxes
+    const serviceBoxes = document.querySelectorAll('.service-box, .service');
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                entry.target.classList.remove('hidden');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    serviceBoxes.forEach(box => {
+        revealObserver.observe(box);
+    });
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <title>Astrologer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Roboto', sans-serif; /* Use Roboto for body text */
             background: radial-gradient(circle, #020024 0%, #090979 40%, #03203C 100%); /* Astrology-inspired background */
@@ -34,529 +521,3 @@
             animation: sparkle 1.5s infinite alternate; /* Animation for sparkle */
         }
 
-        @keyframes sparkle {
-            0% {
-                opacity: 0.5;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        header {
-            background-color: rgba(255, 255, 255, 0.15); /* White with transparency for overlay effect */
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 92%;
-            margin: 0 auto;
-            border-radius: 15px; /* Smooth border */
-            transition: background-color 0.3s ease; /* Transition for hover effect */
-        }
-
-        header:hover {
-            background-color: rgba(255, 255, 255, 0.25); /* Hover effect for header */
-        }
-
-        header nav {
-            display: flex;
-            gap: 1rem;
-        }
-
-        header nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        header nav a:hover {
-            color: #f4c10f; /* Yellow on hover */
-        }
-
-        .hero {
-            background: url('header1.jpg') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            width: 92%;
-            margin: 0 auto;
-            margin-top: 1rem;
-            border-radius: 15px; /* Smooth border */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            text-shadow: 2px 2px 4px #000;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .typing-container {
-            text-align: center;
-            font-size: 2rem;
-            color: #f4c10f; /* Yellow text */
-            margin-top: 1rem;
-        }
-
-        .typing-text {
-            border-right: 2px solid #f4c10f;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
-        }
-        .typing-container {
-    text-align: center;
-    font-size: 2rem; /* Default font size for larger screens */
-    color: #f4c10f; /* Yellow text */
-    margin-top: 1rem;
-}
-
-/* Responsive Styles for the typing text */
-@media (max-width: 768px) {
-    .typing-container {
-        font-size: 1.5rem; /* Smaller font size for tablets */
-    }
-}
-/* New Services Section */
-.services {
-    width: 92%; /* Match the rest of your layout */
-    margin: 2rem auto; /* Center the section */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for PC */
-    gap: 2rem; /* Space between the services */
-    padding: 4rem 0; /* Top and bottom padding */
-    background-color: rgba(255, 255, 255, 0.1); /* Transparent background color */
-    border-radius: 15px; /* Smooth border */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-}
-
-.service {
-    background: linear-gradient(to bottom, #ffecd2, #f4c10f); /* Gold gradient */
-    color: black;
-    padding: 2rem;
-    border-radius: 15px; /* Smooth border */
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease; /* Transition for boxes */
-}
-
-.service h3 {
-    margin-bottom: 1rem;
-}
-
-.service p {
-    margin-bottom: 1rem;
-}
-
-.service a {
-    display: inline-block;
-    background-color: #f4c10f;
-    color: black;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service a:hover {
-    background-color: #ffd700; /* Hover shadow effect */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Hover shadow effect */
-}
-
-/* Hide elements initially */
-.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-/* Make elements visible */
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .services {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
-    }
-}
-
-@media (max-width: 480px) {
-    .services {
-        grid-template-columns: 1fr; /* 1 column for very small screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .typing-container {
-        font-size: 1.2rem; /* Even smaller font size for mobile phones */
-    }
-}
-
-        .service-section {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns for PC */
-    gap: 2rem; /* Space between the boxes */
-    padding: 4rem 0;
-    width: 92%; /* Match the rest of your layout */
-    margin: 2rem auto 0; /* Top margin added for spacing, auto centering left and right */
-    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
-    border-radius: 15px; /* Smooth border */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transition effect */
-}
-
-
-        .service-section:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
-            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5); /* Shadow effect on hover */
-        }
-
-        .service-box {
-            background: linear-gradient(to bottom, #ffecd2, #f4c10f); /* Gold gradient */
-            color: black;
-            padding: 2rem;
-            border-radius: 15px; /* Smooth border */
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease; /* Transition for boxes */
-        }
-
-        .service-box h3 {
-            margin-bottom: 1rem;
-        }
-
-        .service-box p {
-            margin-bottom: 1rem;
-        }
-
-        .service-box a {
-            display: inline-block;
-            background-color: #f4c10f;
-            color: black;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-box a:hover {
-            background-color: #ffd700;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Hover shadow effect */
-        }
-
-        footer {
-            background-color: rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 1rem 2rem;
-            text-align: center;
-            width: 92%;
-            margin: 2rem auto;
-            border-radius: 15px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        footer:hover {
-            background-color: rgba(255, 255, 255, 0.25); /* Hover effect */
-            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5); /* Shadow effect */
-        }
-
-        /* Hide elements initially */
-        .hidden {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        /* Make elements visible */
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .service-section {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .service-section {
-                grid-template-columns: 1fr; /* 1 column for very small screens */
-            }
-        }
-.rashis {
-    text-align: center;
-    margin: 2rem auto;
-    padding: 2rem;
-    width: 92%;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    font-family: 'Lobster', cursive; /* Cool font for headings */
-}
-
-.rashi-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 icons per row by default */
-    gap: 2rem;
-}
-
-.rashi {
-    position: relative;
-    cursor: pointer;
-    text-decoration: none; /* Remove underline from links */
-    color: white;
-}
-
-.rashi-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
-
-.rashi-name {
-    display: block;
-    margin-top: 1rem;
-    font-family: 'Roboto', sans-serif; /* Clean font for the names */
-    font-size: 1.2rem;
-    text-transform: uppercase; /* Uppercase for zodiac names */
-    letter-spacing: 1px; /* Spacing for stylish look */
-    color: #f4c10f; /* Golden color */
-    transition: color 0.3s ease, transform 0.3s ease; /* Cool hover effects */
-}
-
-.rashi:hover .rashi-icon {
-    transform: scale(1.1); /* Enlarge the icon on hover */
-}
-
-.rashi:hover .rashi-name {
-    color: #ffd700; /* Lighter gold on hover */
-    transform: translateY(-5px); /* Move the text up slightly */
-}
-
-/* Responsive Styling */
-@media (max-width: 1024px) {
-    .rashi-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
-    }
-}
-
-@media (max-width: 768px) {
-    .rashi-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns for small tablets or larger mobile devices */
-    }
-}
-
-@media (max-width: 480px) {
-    .rashi-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns for mobile */
-        gap: 1rem; /* Reduce gap between items for smaller screens */
-    }
-}
-
-    </style>
-</head>
-<body>
-
-<!-- Starry background -->
-<div class="stars"></div>
-
-<header>
-    <div class="logo">
-        <h2>Astrologer Name</h2>
-    </div>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <div>
-        <h1 class="fade-in">Unlock the Secrets of Your Future</h1>
-        <div class="typing-container">
-            <h2 class="typing-text"></h2> <!-- Placeholder for auto-typed text -->
-        </div>
-    </div>
-</section>
-
-<!-- Combined Service Options Section -->
-<section class="service-section" id="service-section">
-    <div class="service-box hidden">
-        <a href="https://web.whatsapp.com/" target="_blank">
-            <h3>Free Kundali</h3>
-            <p>Get your kundali analyzed for free by our specialists.</p>
-            <span class="button-text">Get Free Kundali</span>
-        </a>
-    </div>
-    <div class="service-box hidden">
-        <a href="https://example.com/book-pooja" target="_blank">
-            <h3>Book a Pooja</h3>
-            <p>Arrange a sacred pooja with experienced astrologers.</p>
-            <span class="button-text">Book Now</span>
-        </a>
-    </div>
-    <div class="service-box hidden">
-        <a href="https://example.com/chat-astrologer" target="_blank">
-            <h3>Chat with Astrologer</h3>
-            <p>Get instant advice from our expert astrologers.</p>
-            <span class="button-text">Chat Now</span>
-        </a>
-    </div>
-    <div class="service-box hidden">
-        <a href="https://example.com/talk-astrologer" target="_blank">
-            <h3>Talk with Astrologer</h3>
-            <p>Schedule a one-on-one consultation to discuss your future.</p>
-            <span class="button-text">Talk Now</span>
-        </a>
-    </div>
-</section>
-<section class="services" id="services">
-    <div class="service hidden">
-        <h3>Kundli Matching</h3>
-        <p>Find your perfect match with precise kundli matching services.</p>
-        <a href="#">Learn More</a>
-    </div>
-    <div class="service hidden">
-        <h3>Tarot Reading</h3>
-        <p>Get guidance on love, career, and more with accurate tarot readings.</p>
-        <a href="#">Learn More</a>
-    </div>
-    <div class="service hidden">
-        <h3>Daily Horoscope</h3>
-        <p>Discover your daily fortune with our personalized horoscopes.</p>
-        <a href="#">Read Now</a>
-    </div>
-</section>
-
-<section class="rashis">
-    <h2>Explore the 12 Rashis</h2>
-    <div class="rashi-container">
-        <a href="aries.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Aries" class="rashi-icon">
-            <span class="rashi-name">Aries</span>
-        </a>
-        <a href="taurus.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Taurus" class="rashi-icon">
-            <span class="rashi-name">Taurus</span>
-        </a>
-        <a href="gemini.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Gemini" class="rashi-icon">
-            <span class="rashi-name">Gemini</span>
-        </a>
-        <a href="cancer.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Cancer" class="rashi-icon">
-            <span class="rashi-name">Cancer</span>
-        </a>
-        <a href="leo.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Leo" class="rashi-icon">
-            <span class="rashi-name">Leo</span>
-        </a>
-        <a href="virgo.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Virgo" class="rashi-icon">
-            <span class="rashi-name">Virgo</span>
-        </a>
-        <a href="libra.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Libra" class="rashi-icon">
-            <span class="rashi-name">Libra</span>
-        </a>
-        <a href="scorpio.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Scorpio" class="rashi-icon">
-            <span class="rashi-name">Scorpio</span>
-        </a>
-        <a href="sagittarius.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Sagittarius" class="rashi-icon">
-            <span class="rashi-name">Sagittarius</span>
-        </a>
-        <a href="capricorn.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Capricorn" class="rashi-icon">
-            <span class="rashi-name">Capricorn</span>
-        </a>
-        <a href="aquarius.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Aquarius" class="rashi-icon">
-            <span class="rashi-name">Aquarius</span>
-        </a>
-        <a href="pisces.html" class="rashi">
-            <img src="https://via.placeholder.com/100" alt="Pisces" class="rashi-icon">
-            <span class="rashi-name">Pisces</span>
-        </a>
-    </div>
-</section>
-
-<footer>
-    <p>&copy; 2024 Astrologer Name. All Rights Reserved.</p>
-</footer>
-
-<script>
-    // Typing Effect
-    const typingText = document.querySelector('.typing-text');
-    const phrases = ["Discover Your Destiny", "Unlock Hidden Knowledge", "Navigate Your Life's Journey"];
-    let currentPhrase = 0;
-    let letterIndex = 0;
-
-    function type() {
-        if (letterIndex < phrases[currentPhrase].length) {
-            typingText.innerHTML += phrases[currentPhrase].charAt(letterIndex);
-            letterIndex++;
-            setTimeout(type, 100); // Adjust speed here
-        } else {
-            setTimeout(deleteText, 1000); // Wait before deleting
-        }
-    }
-
-    function deleteText() {
-        if (letterIndex > 0) {
-            typingText.innerHTML = phrases[currentPhrase].substring(0, letterIndex - 1);
-            letterIndex--;
-            setTimeout(deleteText, 50); // Adjust speed here
-        } else {
-            currentPhrase = (currentPhrase + 1) % phrases.length;
-            setTimeout(type, 500); // Wait before typing next phrase
-        }
-    }
-
-    // Start the typing effect
-    document.addEventListener('DOMContentLoaded', () => {
-        type();
-        // Fade in effect for hero text
-        const heroText = document.querySelector('.fade-in');
-        heroText.classList.add('visible');
-        
-        // Reveal service boxes with delay
-        const serviceBoxes = document.querySelectorAll('.service-box');
-        serviceBoxes.forEach((box, index) => {
-            setTimeout(() => {
-                box.classList.remove('hidden');
-                box.classList.add('visible');
-            }, index * 300); // Staggered reveal effect
-        });
-    });
-    // Reveal new service boxes with delay
-const newServices = document.querySelectorAll('.service');
-newServices.forEach((service, index) => {
-    setTimeout(() => {
-        service.classList.remove('hidden');
-        service.classList.add('visible');
-    }, index * 300); // Staggered reveal effect
-});
-
-</script>
-
-</body>
-</html>
