@@ -53,6 +53,50 @@
                 opacity: 1;
             }
         }
+        /* Hamburger icon button */
+.menu-toggle {
+    display: none; /* Hidden by default */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Navigation links default state */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show hamburger icon */
+    }
+
+    .nav-links {
+        display: none; /* Hide links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        border-bottom: 1px solid #fff;
+    }
+
+    .nav-links.show {
+        display: flex; /* Show the links when the menu is toggled */
+    }
+}
+
 
         header {
             background-color: rgba(255, 255, 255, 0.15);
@@ -374,16 +418,18 @@
 
 <!-- Scrollable content -->
 <div class="content-container">
-    <header>
-        <div class="logo">
-            <h2>Astrologer Name</h2>
-        </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">
+        <h2>Astrologer Name</h2>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button> <!-- 3-bar icon -->
+    <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
 
     <section class="hero">
         <div>
@@ -654,6 +700,10 @@ rashis.forEach(rashi => {
             document.querySelector('.rashi-descriptions').scrollIntoView({ behavior: 'smooth' });
         }
     });
+});
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('show');
 });
 
 
