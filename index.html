@@ -134,7 +134,8 @@
             color: #f4c10f;
         }
 
-        .hero-carousel {
+     /* General Styles for Carousel and Dots */
+.hero-carousel {
   position: relative;
   height: 60vh;
   width: 92%;
@@ -187,6 +188,7 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
+/* Typing text */
 .typing-container {
   position: absolute;
   bottom: 50px;
@@ -195,6 +197,44 @@
   text-align: center;
   color: #f4c10f;
 }
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  /* Reduce the height of the carousel on smaller screens */
+  .hero-carousel {
+    height: 40vh;  /* Reduce the height on mobile */
+  }
+
+  .slide {
+    height: 40vh;  /* Ensure the image height matches the carousel */
+  }
+
+  .slide img {
+    object-fit: cover;  /* Ensure image covers the area properly */
+  }
+
+  /* Adjust the typing text position on mobile */
+  .typing-container {
+    bottom: 20px;  /* Move the text up a little */
+    font-size: 1.5rem;  /* Adjust font size for mobile */
+  }
+}
+
+/* Media Query for Extra Small Devices (Mobile Phones) */
+@media (max-width: 480px) {
+  .hero-carousel {
+    height: 35vh;  /* Further reduce height for small screens */
+  }
+
+  .slide {
+    height: 35vh;
+  }
+
+  .typing-container {
+    font-size: 1.2rem;  /* Smaller font size for very small screens */
+  }
+}
+
 
         .service-section, .services, .rashis {
             width: 92%;
