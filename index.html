@@ -134,56 +134,67 @@
             color: #f4c10f;
         }
 
-        .hero {
-            background: url('header1.jpg') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            width: 92%;
-            margin: 0 auto;
-            margin-top: 1rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
+        .hero-carousel {
+  position: relative;
+  height: 60vh;
+  width: 92%;
+  margin: 1rem auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
 
-        .hero h1 {
-            font-size: 3rem;
-            text-shadow: 2px 2px 4px #000;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
 
-        .typing-container {
-            text-align: center;
-            font-size: 2rem;
-            color: #f4c10f;
-            margin-top: 1rem;
-        }
+.slide {
+  min-width: 100%;
+  height: 60vh;
+}
 
-        .typing-text {
-            border-right: 2px solid #f4c10f;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
-        }
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .typing-container {
-                font-size: 1.5rem;
-            }
-        }
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
 
-        @media (max-width: 480px) {
-            .typing-container {
-                font-size: 1.2rem;
-            }
-        }
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.typing-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #f4c10f;
+}
 
         .service-section, .services, .rashis {
             width: 92%;
@@ -441,14 +452,32 @@
 </header>
 
 
-    <section class="hero">
-        <div>
-            <h1 class="fade-in">Unlock the Secrets of Your Future</h1>
-            <div class="typing-container">
-                <h2 class="typing-text"></h2>
-            </div>
-        </div>
-    </section>
+<section class="hero-carousel">
+    <div class="carousel-slide">
+      <div class="slide active">
+        <img src="header1.jpg" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="header2.jpg" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="header3.jpg" alt="Slide 3">
+      </div>
+    </div>
+    <!-- Navigation Dots -->
+    <div class="carousel-dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+    <div>
+      <h1>Unlock the Secrets of Your Future</h1>
+      <div class="typing-container">
+        <h2 class="typing-text"></h2>
+      </div>
+    </div>
+  </section>
+  
     
     
     <section class="service-section" id="service-section">
@@ -741,39 +770,61 @@
 </div>
 
 <script>
-    // Simple text typing effect
-    const typingText = document.querySelector('.typing-text');
-    const phrases = ['Astrology Readings', 'Personalized Kundli', 'Daily Horoscopes', 'Future Predictions'];
-    let currentPhraseIndex = 0;
-    let currentCharIndex = 0;
-    const typingSpeed = 150;
-    const erasingSpeed = 100;
-    const delayBetweenPhrases = 2000;
+    
+    let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
 
-    function typePhrase() {
-        if (currentCharIndex < phrases[currentPhraseIndex].length) {
-            typingText.textContent += phrases[currentPhraseIndex].charAt(currentCharIndex);
-            currentCharIndex++;
-            setTimeout(typePhrase, typingSpeed);
-        } else {
-            setTimeout(erasePhrase, delayBetweenPhrases);
-        }
-    }
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? 'block' : 'none';
+  });
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
 
-    function erasePhrase() {
-        if (currentCharIndex > 0) {
-            typingText.textContent = phrases[currentPhraseIndex].substring(0, currentCharIndex - 1);
-            currentCharIndex--;
-            setTimeout(erasePhrase, erasingSpeed);
-        } else {
-            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-            setTimeout(typePhrase, typingSpeed);
-        }
-    }
+function currentSlide(n) {
+  currentSlideIndex = n;
+  showSlide(currentSlideIndex);
+}
 
-    document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(typePhrase, typingSpeed);
-    });
+// Initialize the first slide
+showSlide(currentSlideIndex);
+
+// Typing Effect (existing script from your file)
+const typingText = document.querySelector('.typing-text');
+const phrases = ['Astrology Readings', 'Personalized Kundli', 'Daily Horoscopes', 'Future Predictions'];
+let currentPhraseIndex = 0;
+let currentCharIndex = 0;
+const typingSpeed = 150;
+const erasingSpeed = 100;
+const delayBetweenPhrases = 2000;
+
+function typePhrase() {
+  if (currentCharIndex < phrases[currentPhraseIndex].length) {
+    typingText.textContent += phrases[currentPhraseIndex].charAt(currentCharIndex);
+    currentCharIndex++;
+    setTimeout(typePhrase, typingSpeed);
+  } else {
+    setTimeout(erasePhrase, delayBetweenPhrases);
+  }
+}
+
+function erasePhrase() {
+  if (currentCharIndex > 0) {
+    typingText.textContent = phrases[currentPhraseIndex].substring(0, currentCharIndex - 1);
+    currentCharIndex--;
+    setTimeout(erasePhrase, erasingSpeed);
+  } else {
+    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+    setTimeout(typePhrase, typingSpeed);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(typePhrase, typingSpeed);
+});
 
     // Scroll reveal effect for service boxes
     const serviceBoxes = document.querySelectorAll('.service-box, .service');
