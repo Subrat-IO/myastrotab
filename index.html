@@ -8,11 +8,7 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap" rel="stylesheet">
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    </head>
-    
-    <title>mangalyog.com</title>
+    <title>mangalyog</title>
     <style>
         * {
             margin: 0;
@@ -27,8 +23,8 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background: radial-gradient(circle, #eae9ee 0%, #776f15 40%, #cfd7df 100%);
-            color: rgb(207, 181, 124);
+            background: radial-gradient(circle, #020024 0%, #090979 40%, #03203C 100%);
+            color: white;
             position: relative;
         }
 
@@ -63,7 +59,7 @@
     font-size: 2rem;
     background: none;
     border: none;
-    color: rgb(32, 30, 30);
+    color: white;
     cursor: pointer;
 }
 
@@ -93,19 +89,18 @@
 
     .nav-links a {
         padding: 1rem;
-        border-bottom: 1px solid #7c7171;
+        border-bottom: 1px solid #fff;
     }
 
     .nav-links.show {
-        display: flex; 
-        color: white ;/* Show the links when the menu is toggled */
+        display: flex; /* Show the links when the menu is toggled */
     }
 }
 
 
         header {
             background-color: rgba(255, 255, 255, 0.15);
-            color: rgb(22, 14, 14);
+            color: white;
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
@@ -129,14 +124,14 @@
         }
 
         header nav a {
-            color: rgb(15, 14, 14);
+            color: white;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         header nav a:hover {
-            color: #1d1c1a;
+            color: #f4c10f;
         }
 
      /* General Styles for Carousel and Dots */
@@ -201,7 +196,7 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  color: #0e0d0d;
+  color: #f4c10f;
 }
 
 /* Media Query for Mobile Devices */
@@ -297,7 +292,7 @@
 
         footer {
             background-color: rgba(255, 255, 255, 0.15);
-            color: rgb(27, 19, 19);
+            color: white;
             padding: 1rem 2rem;
             text-align: center;
             width: 92%;
@@ -327,7 +322,7 @@
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
     text-align: center;
-    color: rgb(17, 14, 14); /* Text color */
+    color: white; /* Text color */
     font-size: 1.2rem;
     transition: opacity 0.8s ease, transform 0.8s ease;
     opacity: 0;
@@ -342,7 +337,7 @@
 
 @keyframes glow {
     0% {
-        text-shadow: 0 0 5px rgba(51, 49, 44, 0.8), 0 0 10px rgba(54, 53, 46, 0.8), 0 0 15px rgba(244, 193, 15, 0.8);
+        text-shadow: 0 0 5px rgba(244, 193, 15, 0.8), 0 0 10px rgba(244, 193, 15, 0.8), 0 0 15px rgba(244, 193, 15, 0.8);
     }
     100% {
         text-shadow: 0 0 20px rgba(244, 193, 15, 1), 0 0 30px rgba(244, 193, 15, 1), 0 0 40px rgba(244, 193, 15, 1);
@@ -389,7 +384,7 @@
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
     text-decoration: none; /* Remove underline from links */
-    color: rgb(90, 20, 20); /* Text color */
+    color: white; /* Text color */
     transition: background-color 0.3s, transform 0.3s; /* Transition for hover effects */
     font-size: 1rem; /* Default font size */
 }
@@ -408,7 +403,7 @@
 
 .rashi h3 {
     margin: 0; /* Remove default margin */
-    color: #a11c1c; /* Keep header color */
+    color: #f4c10f; /* Keep header color */
     font-size: 1.25rem; /* Font size for rashi names */
 }
 
@@ -441,7 +436,7 @@
     }
 }
         .services-heading {
-    color: rgb(12, 12, 11);
+    color: yellow;
     font-family: 'Poppins', sans-serif; /* Use a cool, modern font */
     font-size: 36px;
     text-align: center;
@@ -459,13 +454,13 @@
     border-radius: 15px; /* Rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
     text-align: center; /* Center the text */
-    color: rgb(5, 5, 5); /* Text color */
+    color: white; /* Text color */
 }
 
 /* Heading styles */
 .about-section h2 {
     font-size: 2.5rem; /* Heading size */
-    color: #31302b; /* Heading color */
+    color: #f4c10f; /* Heading color */
     margin-bottom: 1rem; /* Space below heading */
 }
 
@@ -524,7 +519,8 @@
       </div>
     </div>
   </section>
-  <div class="container-wrapper">
+  
+    <div class="container-wrapper">
     <!-- Section One: Doshas and Remedies in Two Columns -->
     <section class="text-columns-section">
         <h2 class="section-heading">Doshas and Remedies</h2> <!-- Heading for Section One -->
@@ -725,6 +721,7 @@ body {
 }
 
 </style>
+    
     <section class="service-section" id="service-section">
         <div class="service-box hidden">
             <h3>Free Kundali</h3>
@@ -779,11 +776,11 @@ body {
          background-color: rgba(255, 255, 255, 0.1); /* Translucent background */
          border-radius: 15px; /* Rounded corners */
          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-         color: rgb(32, 26, 26); /* Text color */
+         color: white; /* Text color */
      }
      
      .section-heading {
-         color: #25241f; /* Gold color for heading */
+         color: #f4c10f; /* Gold color for heading */
          font-family: 'Poppins', sans-serif;
          font-size: 36px;
          text-transform: uppercase;
@@ -824,7 +821,7 @@ body {
      .grid-item h3 {
          font-size: 20px;
          margin: 1rem 0;
-         color: #1f1e1c; /* Gold color for titles */
+         color: #f4c10f; /* Gold color for titles */
      }
      
      .grid-item ul {
@@ -834,7 +831,7 @@ body {
      
      .grid-item ul li {
          font-size: 16px;
-         color: #141313; /* Lighter text color */
+         color: #ddd; /* Lighter text color */
          margin-bottom: 5px;
      }
      
