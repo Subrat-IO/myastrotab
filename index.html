@@ -8,6 +8,10 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap" rel="stylesheet">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    </head>
+    
     <title>Astrologer Portfolio</title>
     <style>
         * {
@@ -23,8 +27,8 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background: radial-gradient(circle, #020024 0%, #090979 40%, #03203C 100%);
-            color: white;
+            background: radial-gradient(circle, #eae9ee 0%, #776f15 40%, #cfd7df 100%);
+            color: rgb(207, 181, 124);
             position: relative;
         }
 
@@ -59,7 +63,7 @@
     font-size: 2rem;
     background: none;
     border: none;
-    color: white;
+    color: rgb(32, 30, 30);
     cursor: pointer;
 }
 
@@ -89,18 +93,19 @@
 
     .nav-links a {
         padding: 1rem;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid #7c7171;
     }
 
     .nav-links.show {
-        display: flex; /* Show the links when the menu is toggled */
+        display: flex; 
+        color: white ;/* Show the links when the menu is toggled */
     }
 }
 
 
         header {
             background-color: rgba(255, 255, 255, 0.15);
-            color: white;
+            color: rgb(22, 14, 14);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
@@ -124,14 +129,14 @@
         }
 
         header nav a {
-            color: white;
+            color: rgb(15, 14, 14);
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         header nav a:hover {
-            color: #f4c10f;
+            color: #1d1c1a;
         }
 
      /* General Styles for Carousel and Dots */
@@ -196,7 +201,7 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  color: #f4c10f;
+  color: #0e0d0d;
 }
 
 /* Media Query for Mobile Devices */
@@ -292,7 +297,7 @@
 
         footer {
             background-color: rgba(255, 255, 255, 0.15);
-            color: white;
+            color: rgb(27, 19, 19);
             padding: 1rem 2rem;
             text-align: center;
             width: 92%;
@@ -322,7 +327,7 @@
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
     text-align: center;
-    color: white; /* Text color */
+    color: rgb(17, 14, 14); /* Text color */
     font-size: 1.2rem;
     transition: opacity 0.8s ease, transform 0.8s ease;
     opacity: 0;
@@ -337,7 +342,7 @@
 
 @keyframes glow {
     0% {
-        text-shadow: 0 0 5px rgba(244, 193, 15, 0.8), 0 0 10px rgba(244, 193, 15, 0.8), 0 0 15px rgba(244, 193, 15, 0.8);
+        text-shadow: 0 0 5px rgba(51, 49, 44, 0.8), 0 0 10px rgba(54, 53, 46, 0.8), 0 0 15px rgba(244, 193, 15, 0.8);
     }
     100% {
         text-shadow: 0 0 20px rgba(244, 193, 15, 1), 0 0 30px rgba(244, 193, 15, 1), 0 0 40px rgba(244, 193, 15, 1);
@@ -384,7 +389,7 @@
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
     text-decoration: none; /* Remove underline from links */
-    color: white; /* Text color */
+    color: rgb(90, 20, 20); /* Text color */
     transition: background-color 0.3s, transform 0.3s; /* Transition for hover effects */
     font-size: 1rem; /* Default font size */
 }
@@ -403,7 +408,7 @@
 
 .rashi h3 {
     margin: 0; /* Remove default margin */
-    color: #f4c10f; /* Keep header color */
+    color: #a11c1c; /* Keep header color */
     font-size: 1.25rem; /* Font size for rashi names */
 }
 
@@ -436,7 +441,7 @@
     }
 }
         .services-heading {
-    color: yellow;
+    color: rgb(12, 12, 11);
     font-family: 'Poppins', sans-serif; /* Use a cool, modern font */
     font-size: 36px;
     text-align: center;
@@ -454,13 +459,13 @@
     border-radius: 15px; /* Rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
     text-align: center; /* Center the text */
-    color: white; /* Text color */
+    color: rgb(5, 5, 5); /* Text color */
 }
 
 /* Heading styles */
 .about-section h2 {
     font-size: 2.5rem; /* Heading size */
-    color: #f4c10f; /* Heading color */
+    color: #31302b; /* Heading color */
     margin-bottom: 1rem; /* Space below heading */
 }
 
@@ -519,9 +524,207 @@
       </div>
     </div>
   </section>
-  
-    
-    
+  <div class="container-wrapper">
+    <!-- Section One: Doshas and Remedies in Two Columns -->
+    <section class="text-columns-section">
+        <h2 class="section-heading">Doshas and Remedies</h2> <!-- Heading for Section One -->
+        <div class="dosha-container">
+            <div class="dosha-item">
+                <h3>Manglik Dosha</h3>
+            </div>
+            <div class="remedy-item">
+                <p>1. Worship Lord Hanuman | 2. Wear coral or red gemstone | 3. Chant Hanuman Chalisa | 4. Perform Mangal Graha Shanti</p>
+            </div>
+
+            <div class="dosha-item">
+                <h3>Kaal Sarp Dosha</h3>
+            </div>
+            <div class="remedy-item">
+                <p>1. Worship Lord Shiva | 2. Perform Kaal Sarp Yog Nivaran | 3. Wear blue sapphire or pearl | 4. Chant Maha Mrityunjaya Mantra</p>
+            </div>
+
+            <div class="dosha-item">
+                <h3>Pitru Dosha</h3>
+            </div>
+            <div class="remedy-item">
+                <p>1. Perform Tarpan or Shraddha | 2. Worship ancestors | 3. Offer food to crows | 4. Chant Pitru Stotra</p>
+            </div>
+
+            <div class="dosha-item">
+                <h3>Shani Dosha</h3>
+            </div>
+            <div class="remedy-item">
+                <p>1. Worship Lord Shani | 2. Wear black gemstone or iron ring | 3. Chant Shani Mantra | 4. Perform Shani Graha Shanti</p>
+            </div>
+
+            <div class="dosha-item">
+                <h3>Rahu-Ketu Dosha</h3>
+            </div>
+            <div class="remedy-item">
+                <p>1. Worship Lord Ganesha | 2. Wear white or blue gemstone | 3. Chant Rahu-Ketu Mantra | 4. Perform Rahu-Ketu Graha Shanti</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Two: Descriptions and Icons -->
+    <aside class="description-section">
+        <h2 class="section-heading">Descriptions</h2> <!-- Heading for Descriptions -->
+        <div class="description-item">
+            <div class="description-text">
+                <p>Manglik Dosha indicates a certain astrological condition that can affect marriage. It is believed that it can bring challenges in relationships.</p>
+            </div>
+            <div class="description-icon">
+                <img src="icon1.png" alt="Manglik Dosha Icon" />
+            </div>
+        </div>
+
+        <div class="description-item">
+            <div class="description-text">
+                <p>Kaal Sarp Dosha is formed when all the planets are situated between Rahu and Ketu, leading to various challenges and obstacles in life.</p>
+            </div>
+            <div class="description-icon">
+                <img src="icon2.png" alt="Kaal Sarp Dosha Icon" />
+            </div>
+        </div>
+
+        <div class="description-item">
+            <div class="description-text">
+                <p>Pitru Dosha signifies the presence of ancestral issues, affecting the well-being and peace of the family.</p>
+            </div>
+            <div class="description-icon">
+                <img src="icon3.png" alt="Pitru Dosha Icon" />
+            </div>
+        </div>
+
+        <div class="description-item">
+            <div class="description-text">
+                <p>Shani Dosha relates to the influence of Saturn, which can bring delays and hardships if not managed well.</p>
+            </div>
+            <div class="description-icon">
+                <img src="icon4.png" alt="Shani Dosha Icon" />
+            </div>
+        </div>
+
+        <div class="description-item">
+            <div class="description-text">
+                <p>Rahu-Ketu Dosha can cause confusion and misunderstandings in life, impacting decisions and clarity.</p>
+            </div>
+            <div class="description-icon">
+                <img src="icon5.png" alt="Rahu-Ketu Dosha Icon" />
+            </div>
+        </div>
+    </aside>
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Link to a cool font */
+
+body {
+    font-family: 'Roboto', sans-serif; /* Apply font to body text */
+    background-color: #f4f4f4; /* Optional: Add a light background color to the body */
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: space-between; /* Space between dosha/remedy section and description section */
+    align-items: flex-start;
+    margin: 2rem auto;
+    width: 90%;
+}
+
+/* Section Headings */
+.section-heading {
+    font-size: 1.5rem; /* Size of the headings */
+    color: #333; /* Color of the headings */
+    margin-bottom: 1rem; /* Space below headings */
+}
+
+/* Section One: Doshas and Remedies */
+.text-columns-section, .description-section {
+    width: 48%; /* Adjust width to make space for both sections */
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    max-height: 400px; /* Set a maximum height for both sections */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.dosha-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.dosha-item {
+    flex: 1 1 40%; /* Allow dosha items to take up about 40% of the width */
+    margin: 0.5rem; /* Space between dosha items */
+}
+
+.remedy-item {
+    flex: 1 1 50%; /* Allow remedy items to take up about 50% of the width */
+    margin: 0.5rem; /* Space between remedy items */
+    text-align: left; /* Align text to the left */
+}
+
+/* Section Two: Descriptions */
+.description-item {
+    display: flex;
+    align-items: center; /* Center icon and text vertically */
+    padding: 0.5rem 0; /* Add some padding for each item */
+    margin-bottom: 0.5rem; /* Space between each description */
+}
+
+.description-text {
+    flex: 1; /* Allow text to take up remaining space */
+    text-align: left;
+    color: black;
+    padding-right: 1rem; /* Space between text and icon */
+}
+
+.description-icon {
+    width: 40px; /* Fixed width for square icons */
+    height: 40px; /* Fixed height for square icons */
+}
+
+.description-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire square */
+    border-radius: 5px; /* Slightly rounded corners for a smoother look */
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .container-wrapper {
+        flex-direction: column; /* Stack the sections vertically */
+        width: 100%;
+    }
+
+    .text-columns-section, .description-section {
+        width: 100%; /* Make both sections take full width on smaller screens */
+        margin-bottom: 1.5rem;
+        max-height: none; /* Remove height restriction on smaller screens */
+    }
+
+    .dosha-container {
+        flex-direction: column; /* Stack doshas and remedies vertically on smaller screens */
+    }
+
+    .dosha-item, .remedy-item {
+        flex: 1 1 100%; /* Make both elements take full width on smaller screens */
+    }
+
+    .description-item {
+        flex-direction: column; /* Stack text and icon vertically on smaller screens */
+        align-items: flex-start;
+    }
+
+    .description-text, .description-icon {
+        width: 100%; /* Make both elements take full width */
+        text-align: center;
+    }
+}
+
+</style>
     <section class="service-section" id="service-section">
         <div class="service-box hidden">
             <h3>Free Kundali</h3>
@@ -576,11 +779,11 @@
          background-color: rgba(255, 255, 255, 0.1); /* Translucent background */
          border-radius: 15px; /* Rounded corners */
          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-         color: white; /* Text color */
+         color: rgb(32, 26, 26); /* Text color */
      }
      
      .section-heading {
-         color: #f4c10f; /* Gold color for heading */
+         color: #25241f; /* Gold color for heading */
          font-family: 'Poppins', sans-serif;
          font-size: 36px;
          text-transform: uppercase;
@@ -621,7 +824,7 @@
      .grid-item h3 {
          font-size: 20px;
          margin: 1rem 0;
-         color: #f4c10f; /* Gold color for titles */
+         color: #1f1e1c; /* Gold color for titles */
      }
      
      .grid-item ul {
@@ -631,7 +834,7 @@
      
      .grid-item ul li {
          font-size: 16px;
-         color: #ddd; /* Lighter text color */
+         color: #141313; /* Lighter text color */
          margin-bottom: 5px;
      }
      
